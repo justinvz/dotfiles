@@ -19,3 +19,5 @@ To get this to work, first install all the requirements for LazyVim: https://www
 Clone the repo: ```git clone https://gitlab.com/Goustang/neovim.git ~/.config/nvim```
 
 Start with: ```nvim```
+
+To the tmux config: ```ln -s ~/.config/nvim/.tmux.conf ~/.tmux.conf```
