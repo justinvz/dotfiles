@@ -16,6 +16,6 @@ To get this to work, first install all the requirements for LazyVim: https://www
 - live grep: ripgrep
 - find files: fd
 
-Clone the repo: ```git clone https://gitlab.com/Goustang/neovim.git```
+Clone the repo: ```git clone https://gitlab.com/Goustang/neovim.git ~/.config/nvim```
 
 Start with: ```nvim```
