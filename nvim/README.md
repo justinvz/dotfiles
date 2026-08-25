@@ -38,7 +38,8 @@ nvim
 
 tmux is a terminal multiplexer and can be used to split the terminal into several tabs, windows, and sessions.
 
-This repo also includes my tmux configuration. You can create a symbolic link from the config in this repo to the `.tmux.conf` file inside your home directory.
+This repo also includes my tmux configuration. The root installer links it to
+`~/.tmux.conf`.
 
 Make sure you first install:
 
@@ -49,21 +50,8 @@ Make sure you first install:
 
 ## Tmux Plugin Manager
 
-Install TPM with:
-
-```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
----
-
-## File link to tmux config
-
-Create the symlink:
-
-```bash
-ln -s ~/.config/nvim/.tmux.conf ~/.tmux.conf
-```
+The root installer clones TPM and installs the configured plugins when they
+are missing.
 
 ---
 
