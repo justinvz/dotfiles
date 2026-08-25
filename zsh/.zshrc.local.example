@@ -1,0 +1,6 @@
+# Copy the settings you need to ~/.zshrc.local. This file is not sourced directly.
+
+# [[ -d /opt/my-tool/bin ]] && path=(/opt/my-tool/bin $path)
+# typeset -U path PATH
+# export JAVA_HOME=/path/to/java
+# alias work-command='command --config "$HOME/path/to/config"'
