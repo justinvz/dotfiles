@@ -19,10 +19,11 @@ To get this to work, first install all the requirements for LazyVim: [https://ww
 * live grep: ripgrep
 * find files: fd
 
-## Clone the repo
+## Install
 
 ```bash
-git clone https://gitlab.com/Goustang/neovim.git ~/.config/nvim
+git clone git@github.com:justinvz/dotfiles.git ~/dotfiles
+~/dotfiles/install.sh
 ```
 
 ## Start Neovim

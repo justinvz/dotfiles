@@ -7,7 +7,7 @@ Personal Neovim, Zsh, and tmux configuration managed in one Git repository.
 Install `git`, `zsh`, `tmux`, and `neovim`, then clone and run the installer:
 
 ```sh
-git clone git@gitlab.com:Goustang/dotfiles.git ~/dotfiles
+git clone git@github.com:justinvz/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
