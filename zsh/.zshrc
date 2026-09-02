@@ -145,6 +145,19 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Project sessions
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
+
+function tmux() {
+  if (( $# == 0 )) && (( $+commands[sesh] )); then
+    sesh picker
+  else
+    command tmux "$@"
+  fi
+}
+
 # Machine- and work-specific settings are intentionally not tracked.
 [[ ! -f "$HOME/.zshrc.local" ]] || source "$HOME/.zshrc.local"
 

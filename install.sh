@@ -53,6 +53,7 @@ link_config "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 link_config "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_config "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 link_config "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+link_config "$DOTFILES_DIR/sesh" "$HOME/.config/sesh"
 
 clone_if_missing https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
 clone_if_missing https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
@@ -63,6 +64,16 @@ clone_if_missing https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
 if command -v tmux >/dev/null 2>&1 && [ -x "$HOME/.tmux/plugins/tpm/bin/install_plugins" ]; then
   "$HOME/.tmux/plugins/tpm/bin/install_plugins"
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  for project_root in "$HOME/work_git" "$HOME/workspace" "$HOME/school"; do
+    [ -d "$project_root" ] || continue
+    for project in "$project_root"/*; do
+      [ -d "$project" ] || continue
+      zoxide add "$project"
+    done
+  done
 fi
 
 printf 'Dotfiles installed. Put machine-specific Zsh settings in ~/.zshrc.local.\n'

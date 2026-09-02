@@ -1,36 +1,35 @@
 # Dotfiles
 
-Personal Neovim, Zsh, and tmux configuration managed in one Git repository.
+Personal Neovim, Zsh, tmux, and Sesh configuration.
 
 ## Install
 
-Install `git`, `zsh`, `tmux`, and `neovim`, then clone and run the installer:
+Install `git`, `zsh`, `tmux`, `neovim`, `sesh`, and `zoxide`, then run:
 
 ```sh
 git clone git@github.com:justinvz/dotfiles.git ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-The installer creates these symbolic links:
+## Workflow
+
+Run `tmux` to select a project. Inside tmux, use `Alt-o` to switch projects.
 
 ```text
-~/.config/nvim -> ~/dotfiles/nvim
-~/.zshrc       -> ~/dotfiles/zsh/.zshrc
-~/.p10k.zsh    -> ~/dotfiles/zsh/.p10k.zsh
-~/.tmux.conf   -> ~/dotfiles/tmux/.tmux.conf
+Ctrl-a |       split horizontally
+Ctrl-a -       split vertically
+Ctrl-h/j/k/l   navigate panes and Neovim
+Ctrl-a H/J/K/L resize panes
+Ctrl-a d       detach
+Alt-n/p        switch windows
 ```
 
-It also clones Oh My Zsh, Powerlevel10k, the configured Zsh plugins, and TPM
-when they are missing. Existing unrelated files are never overwritten.
+Projects under `~/work_git`, `~/workspace`, and `~/school` are added to zoxide
+by the installer. Sessions survive detaching but are not restored after reboot.
 
 ## Local settings
 
-Machine-specific paths, credentials, and work aliases belong in
-`~/.zshrc.local`, which is sourced by `.zshrc` but is not tracked. Use
-`zsh/.zshrc.local.example` as a starting point.
-
-Do not add shell histories, SSH keys, kubeconfigs, tokens, or other secrets to
-this repository.
+Put machine-specific settings and secrets in `~/.zshrc.local`.
 
 ## Updating
 
@@ -38,5 +37,3 @@ this repository.
 git -C ~/dotfiles pull
 ~/dotfiles/install.sh
 ```
-
-The previous Neovim documentation is available in `nvim/README.md`.
