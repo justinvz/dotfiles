@@ -170,3 +170,5 @@ typeset -U path PATH
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/dotfiles/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.p10k.zsh
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
