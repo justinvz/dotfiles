@@ -52,6 +52,7 @@ command -v git >/dev/null 2>&1 || {
 link_config "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 link_config "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_config "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+link_config "$DOTFILES_DIR/_sesh" "$HOME/.zsh/completions/_sesh"
 link_config "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
 link_config "$DOTFILES_DIR/sesh" "$HOME/.config/sesh"
 

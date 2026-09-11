@@ -10,7 +10,11 @@ fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-fpath=("${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src" $fpath)
+fpath=(
+  "${ZSH_CUSTOM:-$ZSH/custom}/plugins/zsh-completions/src"
+  "$HOME/.zsh/completions"
+  $fpath
+)
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -130,14 +134,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Tool paths
+[[ -r "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
 [[ -d "$HOME/bin" ]] && path=("$HOME/bin" $path)
 [[ -d "$HOME/.local/bin" ]] && path=("$HOME/.local/bin" $path)
-typeset -U path PATH
-
-[[ -r "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-export PNPM_HOME="$HOME/.local/share/pnpm"
-path=("$PNPM_HOME" $path)
+[[ -d "$PNPM_HOME" ]] && path=("$PNPM_HOME" $path)
+[[ -d "$HOME/.opencode/bin" ]] && path=("$HOME/.opencode/bin" $path)
+[[ -d "${GOPATH:-$HOME/go}/bin" ]] && path=("${GOPATH:-$HOME/go}/bin" $path)
 typeset -U path PATH
 
 # Personal aliases
@@ -163,12 +167,3 @@ function tmux() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# opencode
-[[ -d "$HOME/.opencode/bin" ]] && path=("$HOME/.opencode/bin" $path)
-typeset -U path PATH
-
-# To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/.p10k.zsh.
-[[ ! -f ~/dotfiles/zsh/.p10k.zsh ]] || source ~/dotfiles/zsh/.p10k.zsh
-fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit
