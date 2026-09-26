@@ -52,7 +52,12 @@ command -v git >/dev/null 2>&1 || {
 link_config "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 link_config "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_config "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
-link_config "$DOTFILES_DIR/_sesh" "$HOME/.zsh/completions/_sesh"
+# Sesh completions are loaded from the installed binary in .zshrc.
+# Remove only the obsolete symlink created by earlier versions of this installer.
+if [ -L "$HOME/.zsh/completions/_sesh" ] &&
+   [ "$(readlink -- "$HOME/.zsh/completions/_sesh")" = "$DOTFILES_DIR/_sesh" ]; then
+  rm -- "$HOME/.zsh/completions/_sesh"
+fi
 link_config "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
 link_config "$DOTFILES_DIR/sesh" "$HOME/.config/sesh"
 

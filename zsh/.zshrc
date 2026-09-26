@@ -83,7 +83,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 
@@ -103,6 +102,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Apply after Oh My Zsh so its broader substring matchers don't override this.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # User configuration
 
@@ -150,6 +152,10 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Project sessions
+if (( $+commands[sesh] )); then
+  eval "$(sesh completion zsh)"
+fi
+
 if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh)"
 fi
@@ -167,3 +173,4 @@ function tmux() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="$HOME/.local/bin:$PATH"
