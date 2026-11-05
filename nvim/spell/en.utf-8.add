@@ -1,1 +1,6 @@
-set 0
+AlertManagement
+NOLINTBEGIN
+NOLINTEND
+SnakeGame
+cppcoreguidelines
+nullptr

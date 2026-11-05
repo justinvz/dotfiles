@@ -9,3 +9,4 @@
 *.zwc
 .DS_Store
 .zshrc.local
+/nvim/spell/*.spl
