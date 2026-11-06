@@ -22,6 +22,7 @@ Ctrl-h/j/k/l   navigate panes and Neovim
 Ctrl-a H/J/K/L resize panes
 Ctrl-a d       detach
 Alt-n/p        switch windows
+Alt-Shift-n/p  switch sessions
 Alt-i          open lazygit
 ```
 
