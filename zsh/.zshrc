@@ -103,6 +103,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Keep each pane's interactive history independent, while saving commands
+# promptly to the shared history file for new shells and future sessions.
+unsetopt share_history
+setopt inc_append_history
+
 # Apply after Oh My Zsh so its broader substring matchers don't override this.
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
@@ -162,7 +167,7 @@ fi
 
 function tmux() {
   if (( $# == 0 )) && (( $+commands[sesh] )); then
-    sesh picker
+    sesh picker --hide-duplicates
   else
     command tmux "$@"
   fi
